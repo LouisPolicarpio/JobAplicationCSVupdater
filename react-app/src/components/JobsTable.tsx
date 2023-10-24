@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, ChangeEvent } from "react";
 
 interface JobData {
   company: string;
@@ -8,9 +8,14 @@ interface JobData {
 
 interface JobsTableProps {
   jobData: JobData[];
+  onDelete: (index: number) => void; // Add onDelete prop
 }
 
-function JobsTable({ jobData }: JobsTableProps) {
+function JobsTable({ jobData, onDelete }: JobsTableProps) {
+  function deleteHandler(index: number) {
+    // Call the onDelete prop with the index to delete the item
+    onDelete(index);
+  }
   return (
     <>
       <table className="table">
@@ -20,6 +25,7 @@ function JobsTable({ jobData }: JobsTableProps) {
             <th scope="col">Company</th>
             <th scope="col">Position</th>
             <th scope="col">Date</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -29,6 +35,15 @@ function JobsTable({ jobData }: JobsTableProps) {
               <td>{job.company}</td>
               <td>{job.position}</td>
               <td>{job.date}</td>
+              <td>
+                <button
+                  onClick={() => deleteHandler(index)} // Pass the index to the handler
+                  type="button"
+                  className="btn btn-danger"
+                >
+                  X
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
