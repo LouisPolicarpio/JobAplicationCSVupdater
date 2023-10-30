@@ -1,10 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
-
-interface JobData {
-  company: string;
-  position: string;
-  date: string;
-}
+import { JobData } from "./types";
 
 interface JobsTableProps {
   jobData: JobData[];

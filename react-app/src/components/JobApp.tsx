@@ -1,13 +1,8 @@
-import { CSVLink } from "react-csv";
 import { useState } from "react";
 import JobForm from "./JobForm";
 import JobsTable from "./JobsTable";
-
-interface JobData {
-  company: string;
-  position: string;
-  date: string;
-}
+import CSVfileHandler from "./CSVfileHandler";
+import { JobData } from "./types";
 
 function App() {
   const [jobData, setJobData] = useState<JobData[]>([]);
@@ -45,17 +40,7 @@ function App() {
     <>
       <h1 className="display-4 text-center"> title</h1>
       <JobsTable jobData={jobData} onDelete={handleDelete} />
-      <CSVLink
-        data={jobData}
-        headers={[
-          { label: "Company", key: "company" },
-          { label: "Position", key: "position" },
-          { label: "Date", key: "date" },
-        ]}
-        filename={"job-data.csv"}
-      >
-        Download
-      </CSVLink>
+      <CSVfileHandler jobData={jobData} />
       <JobForm onDataChange={handleJobDataChange} />
     </>
   );
