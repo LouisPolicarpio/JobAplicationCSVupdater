@@ -51,6 +51,7 @@ function JobForm({ onDataChange }: JobFormProps) {
           name="position"
           value={position}
           onChange={handleChange}
+          required
         />
       </div>
 

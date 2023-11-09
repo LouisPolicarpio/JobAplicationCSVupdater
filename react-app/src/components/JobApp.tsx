@@ -38,10 +38,23 @@ function App() {
 
   return (
     <>
-      <h1 className="display-4 text-center"> title</h1>
-      <JobsTable jobData={jobData} onDelete={handleDelete} />
-      <CSVfileHandler jobData={jobData} />
-      <JobForm onDataChange={handleJobDataChange} />
+      <div className="container-fluid">
+        <div className="row gy-5">
+          <h1 className="display-4 text-center"> title</h1>
+        </div>
+        <div className="row gy-7">
+          <JobsTable jobData={jobData} onDelete={handleDelete} />
+        </div>
+        <div className="row gy-5">
+          <JobForm onDataChange={handleJobDataChange} />
+        </div>
+        <div className="row gy-5">
+          <CSVfileHandler
+            jobData={jobData}
+            onDataChange={handleJobDataChange}
+          />
+        </div>
+      </div>
     </>
   );
 }

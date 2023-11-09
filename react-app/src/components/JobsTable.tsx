@@ -1,4 +1,3 @@
-import React, { useState, ChangeEvent } from "react";
 import { JobData } from "./types";
 
 interface JobsTableProps {
