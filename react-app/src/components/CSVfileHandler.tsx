@@ -44,6 +44,7 @@ function CSVfileHandler({ jobData, onDataChange }: CSVfileHandlerProps) {
   const handleParsedData = (result: Papa.ParseResult<{}>) => {
     console.log("Parsed CSV Data:", result.data);
     (result.data as JobData[]).forEach((item: JobData) => {
+      console.log(item);
       onDataChange(item);
     });
   };
@@ -56,9 +57,9 @@ function CSVfileHandler({ jobData, onDataChange }: CSVfileHandlerProps) {
             className="btn btn-primary"
             data={jobData}
             headers={[
-              { label: "Company", key: "company" },
-              { label: "Position", key: "position" },
-              { label: "Date", key: "date" },
+              { label: "company", key: "company" },
+              { label: "position", key: "position" },
+              { label: "date", key: "date" },
             ]}
             filename={"job-data.csv"}
           >

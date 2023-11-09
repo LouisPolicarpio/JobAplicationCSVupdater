@@ -16,9 +16,9 @@ function JobsTable({ jobData, onDelete }: JobsTableProps) {
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Company</th>
-            <th scope="col">Position</th>
-            <th scope="col">Date</th>
+            <th scope="col">company</th>
+            <th scope="col">position</th>
+            <th scope="col">date</th>
             <th scope="col"></th>
           </tr>
         </thead>
